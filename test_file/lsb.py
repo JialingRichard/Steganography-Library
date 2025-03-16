@@ -50,17 +50,17 @@ class LSBSteganography:
         import cv2
 
         # noise
-        np_cover_image = np.array(cover_image) # 将 PIL Image 对象转换为 numpy 数组
-        shape = np_cover_image.shape
-        gaussian_noise = np.random.normal(0, 3, shape).astype(np.uint8)
-        noisy_image = cv2.add(np_cover_image, gaussian_noise) # 使用 numpy 数组
+        # np_cover_image = np.array(cover_image) # 将 PIL Image 对象转换为 numpy 数组
+        # shape = np_cover_image.shape
+        # gaussian_noise = np.random.normal(0, 3, shape).astype(np.uint8)
+        # noisy_image = cv2.add(np_cover_image, gaussian_noise) # 使用 numpy 数组
+
+        # # 保存隐藏了秘密图像的载体图像
+        # Image.fromarray(noisy_image).save(stego_path) # 将 numpy 数组转换为 PIL Image 对象并保存
+
 
         # 保存隐藏了秘密图像的载体图像
-        Image.fromarray(noisy_image).save(stego_path) # 将 numpy 数组转换为 PIL Image 对象并保存
-
-
-        # 保存隐藏了秘密图像的载体图像
-        # cover_image.save(stego_path)
+        cover_image.save(stego_path)
 
     def decode(self, stego_path, extracted_path, secret_width, secret_height):
         """
